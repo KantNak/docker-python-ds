@@ -1,0 +1,30 @@
+{
+  "name": "python-ds",
+  "dockerComposeFile": ["./docker-compose.yml"],
+  "service": "python-ds",
+  "shutdownAction": "none",
+  "workspaceFolder": "/workspace",
+  "settings": {
+    "terminal.integrated.shell.linux": "/usr/bin/fish"
+  },
+  "extensions": [
+    // common
+    "ms-azuretools.vscode-docker",
+    "donjayamanne.githistory",
+    "shardulm94.trailing-spaces",
+    "christian-kohler.path-intellisense",
+    "exodiusstudios.comment-anchors",
+    "grapecity.gc-excelviewer",
+    // for Python
+    "formulahendry.code-runner",
+    "ms-python.vscode-pylance",
+    "ms-python.python",
+    "ms-toolsai.jupyter",
+    "njpwerner.autodocstring",
+    "frhtylcn.pythonsnippets",
+    "littlefoxteam.vscode-python-test-adapter",
+    "dongli.python-preview",
+    "njqdev.vscode-python-typehint",
+    "almenon.arepl"
+  ]
+}

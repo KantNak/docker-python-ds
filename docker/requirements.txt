@@ -1,0 +1,27 @@
+# Essential
+black
+isort
+flake8
+numpy
+scipy
+pandas
+tqdm
+jupyterlab
+matplotlib
+seaborn
+opencv-python
+
+# Utilities
+cookiecutter
+
+# jupyter extensions
+jupyterlab_code_formatter
+
+# For calculation efficiency
+numba
+
+# For machine learning
+scikit-learn
+xgboost
+lightgbm
+optuna

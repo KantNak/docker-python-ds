@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  python-ds:
+    build:
+       context: ./docker
+    container_name: python-ds
+    tty: true
+    volumes:
+      - .:/workspace:cached
+    working_dir: /workspace
+    command: /bin/sh -c "while sleep 1000; do :; done"
+    ports:
+      - 8888:8888
