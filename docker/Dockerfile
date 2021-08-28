@@ -6,7 +6,8 @@ RUN apt-get update && \
     apt-get install -y --no-install-recommends \
     fish \
     git \
-    gcc
+    gcc \
+    libgl1-mesa-dev
 
 # Install node with latest version
 RUN curl -sL https://deb.nodesource.com/setup_14.x  | bash -
@@ -16,7 +17,7 @@ COPY user-settings /root/.jupyter/lab/user-settings
 
 ADD requirements.txt .
 RUN pip install --upgrade pip && \
-    pip install --no-cache-dir -r requirements.txt
+    pip install --no-cache-dir --default-timeout=1000  -r requirements.txt
 
 RUN jupyter serverextension enable --py jupyterlab_code_formatter
 RUN jupyter labextension install @ryantam626/jupyterlab_code_formatter
