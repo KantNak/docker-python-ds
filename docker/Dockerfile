@@ -18,6 +18,10 @@ COPY user-settings /root/.jupyter/lab/user-settings
 ADD requirements.txt .
 RUN pip install --upgrade pip && \
     pip install --no-cache-dir --default-timeout=1000  -r requirements.txt
+RUN pip install --no-cache-dir --default-timeout=1000 \
+    torch==1.9.0+cu111 \
+    torchvision==0.10.0+cu111 \
+    -f https://download.pytorch.org/whl/torch_stable.html
 
 RUN jupyter serverextension enable --py jupyterlab_code_formatter
 RUN jupyter labextension install @ryantam626/jupyterlab_code_formatter
