@@ -16,6 +16,8 @@ cookiecutter>=1.7.3
 
 # jupyter extensions
 jupyterlab_code_formatter>=1.4.10
+jupyterlab-system-monitor
+lckr-jupyterlab-variableinspector
 
 # For calculation efficiency
 numba>=0.54.0
