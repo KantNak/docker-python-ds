@@ -4,27 +4,20 @@ ENV PYTHONUNBUFFERED 1
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
+    build-essential \
     fish \
-    git \
-    gcc \
-    libgl1-mesa-dev
-
-# Install node with latest version
-RUN curl -sL https://deb.nodesource.com/setup_14.x  | bash -
-RUN apt-get install -y --no-install-recommends nodejs
+    git
 
 COPY user-settings /root/.jupyter/lab/user-settings
 
 ADD requirements.txt .
 RUN pip install --upgrade pip && \
-    pip install --no-cache-dir --default-timeout=1000  -r requirements.txt
-RUN pip install --no-cache-dir --default-timeout=1000 \
-    torch==1.9.0+cu111 \
-    torchvision==0.10.0+cu111 \
-    -f https://download.pytorch.org/whl/torch_stable.html
-
-RUN jupyter serverextension enable --py jupyterlab_code_formatter
-RUN jupyter labextension install @ryantam626/jupyterlab_code_formatter
+    pip install --no-cache-dir  -r requirements.txt
+RUN pip install --no-cache-dir \
+    torch \
+    torchvision \
+    torchaudio \
+    --extra-index-url https://download.pytorch.org/whl/cpu
 
 # for fish
 SHELL [ "/usr/bin/fish", "-c" ]
